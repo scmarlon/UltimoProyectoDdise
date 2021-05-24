@@ -4,15 +4,14 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: 'AIzaSyDU-Ke0-hIuNwb7YkSLriY43X6fQFWJz_M',
-    authDomain: 'login-ng-b97ae.firebaseapp.com',
-    databaseURL: 'https://login-ng-b97ae.firebaseio.com',
-    projectId: 'login-ng-b97ae',
-    storageBucket: 'login-ng-b97ae.appspot.com',
-    messagingSenderId: '818340563584',
-    appId: '1:818340563584:web:52d4d25bdd3214363ff465',
-  },
+  firebaseConfig : {
+    apiKey: "AIzaSyD3jAR2c2cCQgeH9RsQ38Oq8_jD1Zywq-Y",
+    authDomain: "app-soda-42923.firebaseapp.com",
+    projectId: "app-soda-42923",
+    storageBucket: "app-soda-42923.appspot.com",
+    messagingSenderId: "896050340779",
+    appId: "1:896050340779:web:3f73e5985745727c70a8ee"
+  }
 };
 
 /*

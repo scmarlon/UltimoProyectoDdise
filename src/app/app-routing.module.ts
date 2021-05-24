@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -32,7 +32,11 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then((m) => m.ForgotPasswordPageModule),
+  },  {
+    path: 'crearresta',
+    loadChildren: () => import('./crearresta/crearresta.module').then( m => m.CrearrestaPageModule)
   },
+
 ];
 
 @NgModule({
