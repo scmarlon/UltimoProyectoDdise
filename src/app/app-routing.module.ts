@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
-import {NewItemComponent} from './new-item/new-item.component';
+
 
 const routes: Routes = [
 
-  {path: 'new_item', component: NewItemComponent},
-  
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),

@@ -6,7 +6,8 @@ export interface Item {
     nombre: string,
     telefono: number,
     ubi: string,
-    descripcion: string
+    descripcion: string,
+    id: string
     // imagen: string[]
 }
 
