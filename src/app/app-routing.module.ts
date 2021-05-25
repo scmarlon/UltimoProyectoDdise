@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
+import {NewItemComponent} from './new-item/new-item.component';
 
 const routes: Routes = [
+
+  {path: 'new_item', component: NewItemComponent},
+  
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
@@ -32,7 +36,8 @@ const routes: Routes = [
   {
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then((m) => m.ForgotPasswordPageModule),
-  },  {
+  },
+  {
     path: 'crearresta',
     loadChildren: () => import('./crearresta/crearresta.module').then( m => m.CrearrestaPageModule)
   },

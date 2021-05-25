@@ -13,6 +13,10 @@ export class AdminPage implements OnInit {
   crerarPage(){
     this.router.navigate(['crearresta'])
   }
+
+  myAction(){
+    this.router.navigate(['login'])
+  }
  
 
   ngOnInit() {

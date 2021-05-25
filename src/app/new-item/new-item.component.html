@@ -1,0 +1,30 @@
+
+
+<ion-card>
+
+  <div style="margin-top: 35px; padding: 10px;">
+    Crear Nuevo Restaurante
+  
+  </div>
+
+  <ion-item class="itemInut">
+    <ion-lable position="stacked"> Nombre: </ion-lable>
+    <ion-input [(ngModel)]="newItem.nombre"></ion-input>
+  </ion-item>
+  
+  <ion-item class="itemInut">
+    <ion-lable position="stacked"> Telefono: </ion-lable>
+    <ion-input type="number" [(ngModel)]="newItem.telefono"></ion-input>
+  </ion-item>
+
+  <ion-item class="itemInut">
+    <ion-lable position="stacked"> Ubicacion: </ion-lable>
+    <ion-input [(ngModel)]="newItem.ubi"></ion-input>
+  </ion-item>
+
+  <ion-item class="itemInut">
+    <ion-lable position="stacked"> Descripcion: </ion-lable>
+    <ion-input [(ngModel)]="newItem.descripcion"></ion-input>
+  </ion-item>
+
+</ion-card>
