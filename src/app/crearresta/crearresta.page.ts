@@ -16,13 +16,26 @@ export class CrearrestaPage implements OnInit {
               public toastController: ToastController,
               public loadingController: LoadingController) { }
 
+  ngOnInit() {
+    const item = this.database.getItem();
+    }
+
+  // newMenus: Menus={
+  //   nombrePlato: '',
+  //   precio: null,
+  //   imagen: ''
+  // }  
+
   newItem: Item ={
     nombre: '',
     telefono: null,
     ubi: '',
     descripcion: '',
-    id:''
-    // imagen: []
+    id:'',
+    //nombrePlato: '',
+    //precio: null,
+    //imagen: ''
+    //menus: []
   };
 
   loading: any;
@@ -34,19 +47,27 @@ export class CrearrestaPage implements OnInit {
   async save(){
     this.presentLoading();
     console.log('Esto es lo que guardaremos', this.newItem);
+
+    //const dataM = this.newMenu;
+    //const idAux = data.id;
+
     const data = this.newItem;
     data.id = this.database.crearId();
     const enlace = 'Items';
+    
     await this.database.crearResta<Item>(data, enlace, data.id);
-    this.presentToast('Se guardó con existo', 3000);
+    this.presentToast('Se guardó con existo', 2000);
     this.loading.dismiss();
     this.newItem ={
       nombre: '',
       telefono: null,
       ubi: '',
       descripcion: '',
-      id:''
-      // imagen: []
+      id:'',
+      //menus: []
+      //nombrePlato: '',
+      //precio: null,
+      //imagen: ''
     };
   }
 
@@ -63,8 +84,5 @@ export class CrearrestaPage implements OnInit {
     await this.loading.present();
   }
   
-
-  ngOnInit() {
-  }
 
 }

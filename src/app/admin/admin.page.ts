@@ -18,6 +18,9 @@ export class AdminPage implements OnInit {
     this.router.navigate(['login'])
   }
  
+  ordenarPage(){
+    this.router.navigate(['ordenar'])
+  }
 
   ngOnInit() {
   }

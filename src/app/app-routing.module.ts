@@ -39,6 +39,16 @@ const routes: Routes = [
     path: 'crearresta',
     loadChildren: () => import('./crearresta/crearresta.module').then( m => m.CrearrestaPageModule)
   },
+  {
+    path: 'ordenar',
+    loadChildren: () => import('./ordenar/agregarmenu.module').then( m => m.OrdenarPageModule)
+  },
+  {
+    path: 'setmenu',
+    loadChildren: () => import('./setmenu/setmenu.module').then( m => m.SetmenuPageModule)
+  },
+
+
 
 ];
 

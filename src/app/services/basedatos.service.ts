@@ -1,3 +1,4 @@
+import { Item } from './../models/interfaces';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFirestore,
@@ -9,9 +10,16 @@ import { AngularFirestore,
 })
 export class BasedatosService {
 
+  editItem: Item;
+
   constructor( public FireStore: AngularFirestore ) { }
 
   crearResta<tipo>(data: tipo, enlace: string, id: string){
+    const ref = this.FireStore.collection<tipo>(enlace);
+    return ref.doc(id).set(data);
+  }
+
+  crearMenu<tipo>(data: tipo, enlace: string, id: string){
     const ref = this.FireStore.collection<tipo>(enlace);
     return ref.doc(id).set(data);
   }
@@ -20,8 +28,9 @@ export class BasedatosService {
     return this.FireStore.createId();
   }
 
-  eliminarResta(){
-
+  eliminarResta<tipo>(enlace: string, id: string){
+    const ref = this.FireStore.collection<tipo>(enlace);
+    return ref.doc(id).delete();
   }
 
   getResta<tipo>(path: string): Observable<tipo[]>{
@@ -32,5 +41,13 @@ export class BasedatosService {
 
   editarResta(){
 
+  }
+
+  setItem(item: Item){
+    this.editItem = item;
+  }
+
+  getItem(){
+    return this.editItem;
   }
 }
