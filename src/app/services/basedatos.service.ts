@@ -1,4 +1,4 @@
-import { Item } from './../models/interfaces';
+import { Item, Menu } from './../models/interfaces';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFirestore,
@@ -11,6 +11,8 @@ import { AngularFirestore,
 export class BasedatosService {
 
   editItem: Item;
+
+  editMenu: Menu;
 
   constructor( public FireStore: AngularFirestore ) { }
 
@@ -39,12 +41,21 @@ export class BasedatosService {
 
   }
 
+  getMenu<tipo>(path: string): Observable<tipo[]>{
+    const ref = this.FireStore.collection<tipo>(path);
+    return ref.valueChanges();
+  }
+
   editarResta(){
 
   }
 
   setItem(item: Item){
     this.editItem = item;
+  }
+  
+  setMenu(menu: Menu){
+    this.editMenu = menu;
   }
 
   getItem(){

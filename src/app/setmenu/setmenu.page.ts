@@ -4,6 +4,7 @@ import { BasedatosService } from './../services/basedatos.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Item, Menu} from './../models/interfaces';
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
 
 @Component({
   selector: 'app-setmenu',
@@ -43,7 +44,9 @@ export class SetmenuPage implements OnInit {
     public database: BasedatosService,
     public toastController: ToastController,
     public loadingController: LoadingController,
-    public FirestorageService: FirestorageService) { }
+    public FirestorageService: FirestorageService,
+    private videoPlayer: VideoPlayer
+    ) { }
 
 
 
@@ -53,6 +56,14 @@ export class SetmenuPage implements OnInit {
       this.newItem = item;
     }
     
+  }
+
+  testVideo(){
+    this.videoPlayer.play('https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4').then(() => {
+      console.log('video completed');
+    }).catch(err => {
+      console.log(err);
+    });
   }
   
   async save(){

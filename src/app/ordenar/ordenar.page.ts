@@ -36,7 +36,7 @@ export class OrdenarPage implements OnInit {
 
   setMenu(){
     this.router.navigate(['setmenu'])
-}
+  }
 
   editItem(item: Item){
     console.log('di click en ==>', item);

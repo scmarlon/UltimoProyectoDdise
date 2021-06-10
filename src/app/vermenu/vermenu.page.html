@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vermenu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-content>
+    <ion-item *ngFor="let menu of menus">
+      <ion-label>
+        {{menu.nombrePlato}}
+      </ion-label>
+      <ion-label>
+        {{menu.precio}}
+      </ion-label>
+      <ion-label>
+        <ion-item>
+          <img [src]="menu.imagen">
+        </ion-item>
+      </ion-label>
+      <!-- <ion-buttons slot="end">
+        <ion-buttons (click)="setMenu()" (click)="editItem(resta)">
+          <ion-icon slot="icon-only" name="restaurant"></ion-icon>
+        </ion-buttons>
+      </ion-buttons> -->
+    </ion-item>
+  </ion-content>
+  
+  
+
+</ion-content>
+
+<ion-content>
+  <div style="position: absolute; bottom:10px;">
+    <ion-button style=" position: absolute; bottom: 0;" (click)= "backPage()" color="dark" position="bottom" class="my-action-button" style="padding-left: 10px;">Atras</ion-button>
+  </div>
+</ion-content>

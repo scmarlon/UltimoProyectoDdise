@@ -8,18 +8,32 @@ import { Router } from '@angular/router';
 })
 export class AdminPage implements OnInit {
 
-  constructor(private router: Router) { }
+  isAdmin = false;
+
+  constructor(private router: Router) {
+
+     const userID = localStorage.getItem('adminID')
+
+     if (userID == "q5KEEzQ5GiPPz9Lc6LOiIZjER5s2")
+        this.isAdmin = true;
+      
+   }
 
   crerarPage(){
     this.router.navigate(['crearresta'])
   }
 
   myAction(){
+    localStorage.removeItem('adminID');
     this.router.navigate(['login'])
   }
  
   ordenarPage(){
     this.router.navigate(['ordenar'])
+  }
+  
+  restPage(){
+    this.router.navigate(['restaurantes'])
   }
 
   ngOnInit() {

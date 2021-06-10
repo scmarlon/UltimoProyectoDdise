@@ -29,7 +29,7 @@
       <label for="file-upload">
         <ion-icon slot="icon-only" name="images"></ion-icon>
       </label>
-      <input (change)="newImage($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
+      <input (change)="newImage($event)" id="file-upload" style="display: none;" type="file" accept="video/*">
     </ion-button>
   </ion-buttons>
 </ion-item>
@@ -38,7 +38,7 @@
   <img class="image" [src]="newImagen">
 </ion-item>
 
-
+<button (click)="testVideo()">test video</button>
 
 <ion-content>
   <div style="position: absolute; bottom:10px;">

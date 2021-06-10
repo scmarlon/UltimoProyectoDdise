@@ -7,10 +7,13 @@
 
 <ion-content class="ion-text-center ion-padding-top"  padding>
 
-  <ion-button (click)="crerarPage()" color="dark" class="my-action-button">Crear Nuevo Rest</ion-button>
+  <ion-button *ngIf="isAdmin" (click)="crerarPage()" color="dark" class="my-action-button">Crear Nuevo Rest</ion-button>
   <br>
   <br>
-  <ion-button (click)="ordenarPage()" color="dark" class="my-action-button">Agregar Menu</ion-button>
+  <ion-button *ngIf="isAdmin"  (click)="ordenarPage()" color="dark" class="my-action-button">Agregar Menu</ion-button>
+  <br>
+  <br>
+  <ion-button (click)="restPage()" color="dark" class="my-action-button">Ver Restaurantes</ion-button>
 
 </ion-content>
 

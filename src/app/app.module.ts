@@ -14,6 +14,8 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireStorageModule } from '@angular/fire/storage'; 
 
+import { VideoPlayer } from '@ionic-native/video-player/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,7 +27,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  
+  providers: [StatusBar,VideoPlayer, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

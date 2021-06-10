@@ -46,7 +46,15 @@ const routes: Routes = [
   {
     path: 'setmenu',
     loadChildren: () => import('./setmenu/setmenu.module').then( m => m.SetmenuPageModule)
+  },  {
+    path: 'restaurantes',
+    loadChildren: () => import('./restaurantes/restaurantes.module').then( m => m.RestaurantesPageModule)
   },
+  {
+    path: 'vermenu',
+    loadChildren: () => import('./vermenu/vermenu.module').then( m => m.VermenuPageModule)
+  },
+
 
 
 
