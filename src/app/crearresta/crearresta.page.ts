@@ -14,17 +14,17 @@ export class CrearrestaPage implements OnInit {
   constructor(private router: Router ,
               public database: BasedatosService,
               public toastController: ToastController,
-              public loadingController: LoadingController) { }
+              public loadingController: LoadingController) {
+
+                
+                
+               }
 
   ngOnInit() {
     const item = this.database.getItem();
     }
 
-  // newMenus: Menus={
-  //   nombrePlato: '',
-  //   precio: null,
-  //   imagen: ''
-  // }  
+ 
 
   newItem: Item ={
     nombre: '',
@@ -32,10 +32,7 @@ export class CrearrestaPage implements OnInit {
     ubi: '',
     descripcion: '',
     id:'',
-    //nombrePlato: '',
-    //precio: null,
-    //imagen: ''
-    //menus: []
+    idGen: '',
   };
 
   loading: any;
@@ -52,11 +49,17 @@ export class CrearrestaPage implements OnInit {
     //const idAux = data.id;
 
     const data = this.newItem;
-    data.id = this.database.crearId();
+
+    const idGenerada = this.database.crearId();
+    data.idGen = idGenerada;
+    
+    const userID = localStorage.getItem('adminID');
+    data.id = userID;
+    
     const enlace = 'Items';
     
-    await this.database.crearResta<Item>(data, enlace, data.id);
-    this.presentToast('Se guardó con existo', 2000);
+    await this.database.crearResta<Item>(data, enlace, idGenerada);
+    this.presentToast('Se guardó con existo', 1500);
     this.loading.dismiss();
     this.newItem ={
       nombre: '',
@@ -64,10 +67,7 @@ export class CrearrestaPage implements OnInit {
       ubi: '',
       descripcion: '',
       id:'',
-      //menus: []
-      //nombrePlato: '',
-      //precio: null,
-      //imagen: ''
+      idGen: '',
     };
   }
 

@@ -1,28 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Restaurant</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-
-  <ion-item *ngFor="let resta of items">
-    <ion-label>
-      {{resta.nombre}}
-    </ion-label>
-    <ion-buttons slot="end">
-      <ion-buttons (click)="setMenu()" (click)="editItem(resta)">
-        <ion-icon slot="icon-only" name="create"></ion-icon>
+<ion-content class="background"  padding>
+  <ion-img src="../../assets/restaurantes .png" style="padding-top: 60px;"  ></ion-img> 
+  <ion-card>
+    <ion-item *ngFor="let resta of items">
+      <ion-label *ngIf="resta.id === userID" >
+        {{resta.nombre}}
+      </ion-label>
+      <ion-buttons slot="end" *ngIf="resta.id === userID" >
+        <ion-buttons (click)="setMenu()" (click)="editItem(resta)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-buttons>
+        <ion-buttons (click)="deleteItem(resta)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-buttons>
       </ion-buttons>
-      <ion-buttons (click)="deleteItem(resta)">
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
-      </ion-buttons>
-    </ion-buttons>
-  </ion-item>
+    </ion-item>
+  </ion-card>
 
-</ion-content>
-
-<ion-content>
   <div style="position: absolute; bottom:10px;">
     <ion-button style=" position: absolute; bottom: 0;" (click)= "backPage()" color="dark" position="bottom" class="my-action-button" style="padding-left: 10px;">Atras</ion-button>
   </div>

@@ -54,6 +54,18 @@ const routes: Routes = [
     path: 'vermenu',
     loadChildren: () => import('./vermenu/vermenu.module').then( m => m.VermenuPageModule)
   },
+  {
+    path: 'comprar',
+    loadChildren: () => import('./comprar/comprar.module').then( m => m.ComprarPageModule)
+  },
+  {
+    path: 'videos',
+    loadChildren: () => import('./videos/videos.module').then( m => m.VideosPageModule)
+  },
+  {
+    path: 'final',
+    loadChildren: () => import('./final/final.module').then( m => m.FinalPageModule)
+  },
 
 
 

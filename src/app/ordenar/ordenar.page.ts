@@ -13,9 +13,14 @@ export class OrdenarPage implements OnInit {
 
   items: Item[] = [];
 
+  userID = "";
+
   constructor(private router: Router ,
     public database: BasedatosService,
-    public alertController: AlertController) { }
+    public alertController: AlertController) { 
+      this.userID = localStorage.getItem('adminID')
+      console.log("HOLAAAA: ", localStorage.getItem('adminID'))
+    }
 
    
 

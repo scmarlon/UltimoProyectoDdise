@@ -13,18 +13,27 @@ export class RestaurantesPage implements OnInit {
 
   items: Item[] = [];
 
+  lugar = "";
   constructor(private router: Router ,
     public database: BasedatosService,
-    public alertController: AlertController) { }
+    public alertController: AlertController) { 
+      
+    }
 
-  ngOnInit() {
+  ngOnInit() {''
     this.getItems();
   }
 
   getItems(){
+    this.lugar = localStorage.getItem('lugar')
     const enlace = 'Items';
+    let itemsTest: Item[] = [];
     this.database.getResta<Item>(enlace).subscribe( res => {
-        this.items = res;
+        for (const item of res) {
+           if(item.ubi === this.lugar)
+              itemsTest.push(item)
+        }
+        this.items = itemsTest;
     });
   }
 
@@ -33,12 +42,10 @@ export class RestaurantesPage implements OnInit {
   }
 
   editItem(item: Item){
-    console.log('di click en ==>', item);
     this.database.setItem(item);
   }
 
   datosMenu(menu: Menu){
-    console.log('di click en ==>', menu);
     this.database.setMenu(menu);
   }
 

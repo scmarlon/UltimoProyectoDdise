@@ -29,6 +29,9 @@ export class BasedatosService {
   crearId(){
     return this.FireStore.createId();
   }
+  creaNmobre(){
+    return this.FireStore.createId();
+  }
 
   eliminarResta<tipo>(enlace: string, id: string){
     const ref = this.FireStore.collection<tipo>(enlace);
@@ -54,11 +57,21 @@ export class BasedatosService {
     this.editItem = item;
   }
   
+  getItem(){
+    console.log("HOLITA",this.editItem)
+    return this.editItem;
+  }
+
   setMenu(menu: Menu){
     this.editMenu = menu;
   }
 
-  getItem(){
-    return this.editItem;
+  getMenu2(){
+    return this.editMenu;
+    
   }
+
+  
+
+
 }

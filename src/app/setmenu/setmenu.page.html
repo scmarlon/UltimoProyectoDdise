@@ -1,48 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>PRINCIPAL</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 
-<ion-item  class="itemInut">
-  <ion-label position="stacked"> Nombre Del Rest: </ion-label>
-  <ion-input disabled [(ngModel)]="newItem.nombre"></ion-input>
-</ion-item>
+<ion-content class="background">
+  <ion-item  class="itemInut" style="padding-top: 40px;">
+    <ion-label position="stacked"> Nombre Del Rest: </ion-label>
+    <ion-input disabled [(ngModel)]="newItem.nombre"></ion-input>
+  </ion-item>
 
-<ion-item class="itemInut">
-  <ion-label position="stacked"> Nombre del plato: </ion-label>
-  <ion-input [(ngModel)]="newMenu.nombrePlato"></ion-input>
-</ion-item>
+  <ion-item class="itemInut">
+    <ion-label position="stacked"> Nombre del plato: </ion-label>
+    <ion-input [(ngModel)]="newMenu.nombrePlato"></ion-input>
+  </ion-item>
 
-<ion-item class="itemInut">
-  <ion-label position="stacked"> Precio del plato: </ion-label>
-  <ion-input type="number" [(ngModel)]="newMenu.precio"></ion-input>
-</ion-item>
+  <ion-item class="itemInut">
+    <ion-label position="stacked"> Precio del plato: </ion-label>
+    <ion-input type="number" [(ngModel)]="newMenu.precio"></ion-input>
+  </ion-item>
 
-<ion-item>
-  <ion-label class="normal">
-    Agregar Foto:
-  </ion-label>
-  <ion-buttons slot="end">
-    <ion-button>
-      <label for="file-upload">
-        <ion-icon slot="icon-only" name="images"></ion-icon>
-      </label>
-      <input (change)="newImage($event)" id="file-upload" style="display: none;" type="file" accept="video/*">
-    </ion-button>
-  </ion-buttons>
-</ion-item>
+  <ion-item>
+    <ion-label class="normal">
+      Agregar Foto:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-buttons >
+        <label for="file-upload">
+          <ion-icon slot="icon-only" name="images"></ion-icon>
+        </label>
+        <input (change)="newImage($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
+      </ion-buttons>
+    </ion-buttons>
+  </ion-item>
 
-<ion-item>
-  <img class="image" [src]="newImagen">
-</ion-item>
+  <!-- <ion-item>
+    <ion-label class="normal">
+      Agregar Video:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-buttons >
+        <label for="file-upload">
+          <ion-icon slot="icon-only" name="film"></ion-icon>
+        </label>
+        <input (change)="newVideo($event)" id="file-upload" style="display: none;" type="file" accept="video/*">
+      </ion-buttons>
+    </ion-buttons>
+  </ion-item> -->
 
-<button (click)="testVideo()">test video</button>
+  <ion-item>
+    <img class="image" [src]="newImagen">
+  </ion-item>
 
-<ion-content>
-  <div style="position: absolute; bottom:10px;">
-    <ion-button style=" position: absolute; bottom: 0;" (click)= "backPage()" color="dark" position="bottom" class="my-action-button" style="padding-left: 10px;">Atras</ion-button>
-    <ion-button style=" position: absolute; bottom: 0;" (click)= "save()" color="dark" position="bottom" class="my-action-button" style="padding-left: 60px;">Crear Plato</ion-button>
-  </div>
+  <!-- <button (click)="testVideo()">test video</button> -->
+
+  
+    <div style="position: absolute; bottom:10px;">
+      <ion-button style=" position: absolute; bottom: 0;" (click)= "backPage()" color="dark" position="bottom" class="my-action-button" style="padding-left: 10px;">Atras</ion-button>
+      <ion-button style=" position: absolute; bottom: 0;" (click)= "save()" color="dark" position="bottom" class="my-action-button" style="padding-left: 110px;">Crear Plato</ion-button>
+    </div>
 </ion-content>

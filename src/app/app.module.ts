@@ -1,3 +1,5 @@
+import { PopoverComponent } from './components/popover/popover.component';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -16,8 +18,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PopoverComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -25,7 +28,9 @@ import { VideoPlayer } from '@ionic-native/video-player/ngx';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    
+    
   ],
   
   providers: [StatusBar,VideoPlayer, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

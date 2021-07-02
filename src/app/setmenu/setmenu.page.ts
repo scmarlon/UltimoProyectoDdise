@@ -15,10 +15,7 @@ export class SetmenuPage implements OnInit {
 
   newImagen = '';
   newFile = '';
-
-  
-
-  
+  newVide = '';
 
   //newMenu = new Menus();
   //listMenu: Array<any> = [];
@@ -27,7 +24,8 @@ export class SetmenuPage implements OnInit {
     nombrePlato: null,
     precio: null,
     imagen: '',
-    id:''
+    id:'',
+    video: ''
   }
   newItem: Item ={
     nombre: '',
@@ -35,7 +33,7 @@ export class SetmenuPage implements OnInit {
     ubi: '',
     descripcion: '',
     id:'',
-    //menus: null
+    idGen: '',
   };
 
   loading: any;
@@ -58,19 +56,19 @@ export class SetmenuPage implements OnInit {
     
   }
 
-  testVideo(){
-    this.videoPlayer.play('https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4').then(() => {
-      console.log('video completed');
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+  // testVideo(){
+  //   this.videoPlayer.play('https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4').then(() => {
+  //     console.log('video completed');
+  //   }).catch(err => {
+  //     console.log(err);
+  //   });
+  // }
   
   async save(){
     
     this.presentLoading();
     const path = "Fotos";
-    const name = this.newItem.nombre;
+    const name = this.database.creaNmobre();
     const res= await this.FirestorageService.uploadImage(this.newFile, path, name);
     this.newMenu.imagen = res;
 
@@ -84,36 +82,33 @@ export class SetmenuPage implements OnInit {
     // }
 
     //Menu----------
+    const RestaID = data.idGen;
+
     const idAux = data.id;
+
+    console.log("El id del rest generado es => ", RestaID)
+
     const dataM = this.newMenu;
-    dataM.id = idAux;
+    dataM.id = RestaID;
     const idEnlace = this.database.crearId();
-    console.log('cual ID es =>', idAux)
+
     const enlaceM = 'Menus'
     await this.database.crearMenu<Menu>(dataM, enlaceM, idEnlace);
     //-----------
 
-    // const enlace = 'Items';
-    // await this.database.crearResta<Item>(data, enlace, data.id);
-    // console.log('ID ITEM =>', data.id)
+  
     this.presentToast('Se guardó con existo', 2000);
     this.loading.dismiss();
     const nombreRest = this.newItem.nombre;
     this.newItem.nombre = nombreRest;
-    // this.newItem ={
-    //   nombre: this.newItem.nombre,
-    //   telefono: null,
-    //   ubi: '',
-    //   descripcion: '',
-    //   id:'',
-    //   //menus: null
-    // };
+   
 
      this.newMenu ={
        nombrePlato: null,
        precio: null,
        imagen: '',
-       id:''
+       id:'',
+       video: ''
      }
 
   }
@@ -140,6 +135,17 @@ export class SetmenuPage implements OnInit {
        reader.readAsDataURL(event.target.files[0]);
      }
   }
+
+  // async newVideo(event: any){
+  //   if(event.target.files && event.target.files[0]){
+  //     this.newFile = event.target.files[0];
+  //     const reader = new FileReader();
+  //     reader.onload = ((VideoPlayer) => {
+  //       this.newVide = VideoPlayer.target.result as string;
+  //     });
+  //     reader.readAsDataURL(event.target.files[0]);
+  //   }
+  // }
 
   backPage(){
     this.router.navigate(['admin'])

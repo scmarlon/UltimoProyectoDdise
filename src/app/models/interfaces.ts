@@ -8,27 +8,18 @@ export interface Item {
     ubi: string,
     descripcion: string,
     id: string,
-    //nombrePlato: string,
-    //precio: number,
-    //imagen: string,
-    //menus: any,
-    //ordens: string[]
+    idGen: string,
+    
 }
 
 
-
-// export interface ordenes {
-//     cantidad: number,
-//     nombrePlato: string,
-//     precio: number,
-//     imagen: string[],
-// }
-
 export interface Menu{
-    nombrePlato: string;
-    precio: number;
-    imagen: string;
-    id: string
+    nombrePlato: string,
+    precio: number,
+    imagen: string,
+    video: string,
+    id: string,
+
 }
 
 

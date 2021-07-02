@@ -1,0 +1,58 @@
+
+
+<ion-content class="background"  padding  >
+  <div style="padding-top: 20px;">
+    <ion-card style="width: 250px; margin-left: 35px;">
+      <p class="ion-text-center">Su Orden!</p>
+      <ion-item>
+        <ion-label>
+          <img [src]="menuSelect.imagen">
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+
+
+
+  <ion-card>
+    <ion-item>
+      <ion-label  font-size="100px">
+        <p>Plato</p>
+        <h2>{{menuSelect.nombrePlato}}</h2>
+      </ion-label>
+      <ion-label>
+        <p>Precio total</p>
+        <h2>₡{{newPrecio}}</h2>
+      </ion-label>
+      <ion-label>
+        <p>Cantidad</p>
+        <h2>{{aux2}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <p class="ion-text-center">Metodos de pago</p>
+    <ion-buttons style="width: 80px; padding-left: 25px;" color="dark" >
+      <ion-button (click)="final()">
+        Uber Eats
+      </ion-button>
+      <ion-button (click)="final()">
+        Go Pato 
+      </ion-button>
+      <ion-button (click)="final()">
+        Glovo 
+      </ion-button>
+    </ion-buttons>
+  </ion-card>
+
+  
+
+  
+
+  <div style="position: absolute; bottom:10px;">
+    <ion-button style=" position: absolute; bottom: 0;" (click)= "backPage()" color="dark" position="bottom" class="my-action-button" style="padding-left: 10px;">Atras</ion-button>
+  </div>
+
+</ion-content>
+

@@ -14,6 +14,7 @@ export class LoginPage {
     try {
       const user = await this.authSvc.login(email.value, password.value);
       if (user) {
+        localStorage.setItem('adminID', user.uid);
         const isVerified = this.authSvc.isEmailVerified(user);
         this.redirectUser(isVerified);
       }
